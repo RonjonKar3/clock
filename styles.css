@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f172a;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock {
+  width: 300px;
+  height: 300px;
+  border: 8px solid #38bdf8;
+  border-radius: 50%;
+  position: relative;
+  background: #1e293b;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+}
+
+/* Numbers */
+.clock span {
+  position: absolute;
+  inset: 10px;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b {
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  transform: rotate(calc(-30deg * var(--i)));
+}
+
+/* Center dot */
+.clock::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #38bdf8;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+/* Hands container */
+.hand {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hand shape */
+.hand i {
+  position: absolute;
+  bottom: 50%; /* IMPORTANT: start from center */
+  width: 4px;
+  height: 80px;
+  background: var(--clr);
+  border-radius: 4px;
+  transform-origin: bottom;
+  transform: rotate(0deg);
+}
+
+/* Hour hand */
+.hand:nth-child(1) i {
+  height: 60px;
+  width: 5px;
+}
+
+/* Minute hand */
+.hand:nth-child(2) i {
+  height: 80px;
+  width: 3px;
+}
+
+/* Second hand */
+.hand:nth-child(3) i {
+  height: 100px;
+  width: 2px;
+}
+
+.digital {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 25px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #38bdf8;
+  background: rgba(10, 93, 226, 0.217);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 
+    0 0 10px rgba(56, 189, 248, 0.4),
+    0 0 20px rgba(56, 189, 248, 0.2);
+  text-align: center;
+}
+
